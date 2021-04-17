@@ -1,4 +1,4 @@
-<header>
+<header class="text-center">
 <h3>Cadastro de Contato</h3>
 </header>
 
@@ -18,7 +18,9 @@
     </div>
 
     <div>
-    <input type="submit" value="Adicionar" name="btnAdicionar">
+    <input class="btn btn-success" type="submit" value="Adicionar" name="btnAdicionar">
+    <a class="btn btn-danger" href="index.php?menuop=contatos" role="button">Cancelar</a>
+    
     </div>
 </form>
 </div>

@@ -1,4 +1,4 @@
-<header>
+<header class="text-center">
     <h3>Atualizar Contato</h3>
 </header>
 
