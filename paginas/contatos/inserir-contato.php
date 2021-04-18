@@ -17,14 +17,20 @@ if($_POST["nomeContato"] == "" || $_POST["telefoneContato"] == ""){
     $nomeContato = mysqli_real_escape_string($conexao, $_POST["nomeContato"]);
     $telefoneContato = mysqli_real_escape_string($conexao, $_POST["telefoneContato"]);
     $enderecoContato = mysqli_real_escape_string($conexao, $_POST["enderecoContato"]);
+    $cidadeContato = mysqli_real_escape_string($conexao, $_POST["cidadeContato"]);
+    $estadoContato = mysqli_real_escape_string($conexao, $_POST["estadoContato"]);
     $sql = "INSERT INTO tb_contatos (
                 nome,
                 telefone,
-                endereco) 
+                endereco,
+                cidade,
+                estado) 
              VALUES(
                 '{$nomeContato}',
                 '{$telefoneContato}',
-                '{$enderecoContato}'
+                '{$enderecoContato}',
+                '{$cidadeContato}',
+                '{$estadoContato}'
         )";
 
     mysqli_query($conexao, $sql) or die("Erro ao executar a consulta.". mysqli_error($conexao));

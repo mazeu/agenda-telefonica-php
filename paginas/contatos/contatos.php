@@ -3,17 +3,16 @@
 </header>
 <div class="d-flex justify-content-between">
     <div class="d-flex justify-content-start">
-        
-    <a class="btn btn-warning" href="index.php?menuop=cad-contato" role="button">Criar Contato</a>
+        <a class="btn btn-warning" href="index.php?menuop=cad-contato" role="button">Criar Contato</a>
     </div>
-
+    
     <div>
-    <form class="pesquisar d-flex justify-content-between" action="index.php?menuop=contatos" method="post">
-        <input type="text" name="txt_pesquisa">
+        <form class="pesquisar d-flex justify-content-between" action="index.php?menuop=contatos" method="post">
         
-        <button class="btn btn-secondary" type="submit" value="Pesquisar"><i class="fas fa-search"></i></button>
-    </form>
+            <button class="btn btn-secondary" name="txt_pesquisa" type="submit" value="Pesquisar">Ver Todos</button>
+        </form>
     </div>
+    
 </div>
 <div class="d-flex justify-content-center py-2">
   <form action="index.php?menuop=contatos" method="post" >
@@ -45,13 +44,15 @@
         <button class="alfabeto btn btn-info" id="z" value="z" onClick="pesquisarLetra(this.id)" name="letra_pesquisa">z</button>
     </form>
 </div>
-<table class="table">
-    <thead class="thead-light">
+<table class="table table-striped">
+    <thead class="table-dark justify-content-center">
         <tr>
             
             <td scope="col">Nome</td>
             <td scope="col">Telefone</td>
             <td scope="col">Endereço</td>
+            <td scope="col">Cidade</td>
+            <td scope="col">Estado</td>
             <td scope="col">Editar</td>
             <td scope="col">Apagar</td>
         </tr>
@@ -59,8 +60,9 @@
     <tbody>
 
     <?php
+    
     $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"] : "";
-    $sql = "SELECT
+    $txt_sql = "SELECT
             *
             FROM tb_contatos
             WHERE
@@ -70,17 +72,17 @@
     ";
 
     $letra_pesquisa = (isset($_POST["letra_pesquisa"]))?$_POST["letra_pesquisa"] : "";
-    $sql = "SELECT
+    $letra_sql = "SELECT
             *
             FROM tb_contatos
             WHERE
-            id = '{$txt_pesquisa}' or
+            id = '{$letra_pesquisa}' or
             nome LIKE '{$letra_pesquisa}%'
             ORDER BY nome ASC
     ";
 
 
-    $rs = mysqli_query($conexao, $sql) or die("Erro ao executar a consulta!". mysqli_error($conexao));
+    $rs = mysqli_query($conexao, $letra_sql) or die("Erro ao executar a consulta!". mysqli_error($conexao));
     
 
     while($dados = mysqli_fetch_assoc($rs)){
@@ -88,10 +90,11 @@
     ?>
     
         <tr>
-        
             <td><?=$dados["nome"]   ?></td>
             <td><?=$dados["telefone"]   ?></td>
             <td><?=$dados["endereco"]   ?></td>
+            <td><?=$dados["cidade"]   ?></td>
+            <td><?=$dados["estado"]   ?></td>
             <td><a href="index.php?menuop=editar-contato&id=<?=$dados["id"] ?>"><i class="fas fa-edit"></i></a></td>
             <td><a href="index.php?menuop=excluir-contato&id=<?=$dados["id"] ?>"><i class="fas fa-trash-alt" style="color:#6E0D25;"></i></a></td>
         </tr>

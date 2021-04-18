@@ -12,10 +12,14 @@
     $nomeContato = mysqli_real_escape_string($conexao, $_POST["nomeContato"]);
     $telefoneContato = mysqli_real_escape_string($conexao, $_POST["telefoneContato"]);
     $enderecoContato = mysqli_real_escape_string($conexao, $_POST["enderecoContato"]);
+    $cidadeContato = mysqli_real_escape_string($conexao, $_POST["cidadeContato"]);
+    $estadoContato = mysqli_real_escape_string($conexao, $_POST["estadoContato"]);
     $sql = "UPDATE tb_contatos SET
                 nome = '{$nomeContato}',
                 telefone = '{$telefoneContato}',
-                endereco =  '{$enderecoContato}'
+                endereco = '{$enderecoContato}',
+                cidade = '{$cidadeContato}',
+                estado =  '{$estadoContato}'
             WHERE id =  '{$idContato}'
         ";
 
