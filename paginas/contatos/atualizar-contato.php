@@ -1,6 +1,11 @@
 <header class="text-center">
     <h3>Atualizar Contato</h3>
 </header>
+<div>
+    
+    <a class="btn btn-success justify-content-center" href="index.php?menuop=contatos" role="button">Voltar</a>
+    
+</div>
 
 <?php
     $idContato = mysqli_real_escape_string($conexao, $_POST["idContato"]);
@@ -16,5 +21,5 @@
 
     mysqli_query($conexao, $sql) or die("Erro ao executar a consulta.". mysqli_error($conexao));
 
-    echo "O registro foi atualizado com sucesso!";
+    echo "<h4>O registro foi atualizado com sucesso!</h4>";
 ?>

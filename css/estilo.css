@@ -2,9 +2,15 @@
     margin:0px;
     padding:0px;
     box-sizing: border-box;
+    
 }
 body{
     margin:0 auto;
+}
+
+h4{
+    font-size: 1.5rem;
+    margin:1.5rem auto;
 }
 
 /*HOME*/
@@ -13,6 +19,13 @@ body{
     width:auto;
     height: 60vh;
     margin: 0 auto;
+}
+.container{
+    padding:0px;
+    margin:0px auto;
+}
+.invisivel{
+    display:none
 }
 
 /* Fim da HOME*/
@@ -36,6 +49,17 @@ main{
 td {
     padding:0.5rem;
 
+}
+
+.alfabeto{
+    display:inline-flex;
+    padding:0.4rem 0.7rem;
+    margin:0.1rem;
+    background-color:#2D3047;
+}
+.alfabeto:hover{
+    font-weight: 800;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*Fim de Contatos*/

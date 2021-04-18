@@ -11,7 +11,7 @@ $dados = mysqli_fetch_assoc($rs);
 </header>
 
 <form action="index.php?menuop=atualizar-contato" method="post">
-    <div>
+    <div class="invisible">
         <label for="idContato">ID</label>
         <input type="text" name="idContato" value="<?=$dados["id"]?>">
     </div>
@@ -29,7 +29,7 @@ $dados = mysqli_fetch_assoc($rs);
     </div>
 
     <div>
-    <input type="submit" value="Atualizar" name="btnAtualizar">
+    <input class="btn btn-warning" type="submit" value="Atualizar" name="btnAtualizar">
     </div>
 </form>
 </div>
